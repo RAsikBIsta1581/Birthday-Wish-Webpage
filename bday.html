@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Georgia", serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #f8e8ee, #e3d5ca, #d6e2e9);
+    overflow:hidden;
+}
+
+/* Card */
+.card{
+    width:380px;
+    padding:40px 30px;
+    text-align:center;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    border-radius:28px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    animation:fadeIn 1.5s ease;
+    z-index:2;
+}
+
+h1{
+    font-size:36px;
+    color:#6d6875;
+    margin-bottom:18px;
+    font-weight:normal;
+}
+
+.message{
+    font-size:17px;
+    line-height:1.7;
+    color:#555;
+    margin-bottom:22px;
+}
+
+.name{
+    font-size:20px;
+    color:#9a8c98;
+    font-style:italic;
+    margin-bottom:24px;
+}
+
+button{
+    padding:12px 24px;
+    border:none;
+    border-radius:30px;
+    background:#c9ada7;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+}
+
+.show{
+    display:block;
+    margin-top:22px;
+    color:#6d6875;
+    font-size:16px;
+    line-height:1.6;
+    animation:fadeText 1s ease;
+}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    font-size:24px;
+    color:rgba(255,255,255,0.75);
+    animation:float 10s linear infinite;
+}
+
+.heart:nth-child(1){ left:8%; animation-delay:0s; }
+.heart:nth-child(2){ left:25%; animation-delay:2s; }
+.heart:nth-child(3){ left:50%; animation-delay:4s; }
+.heart:nth-child(4){ left:75%; animation-delay:1s; }
+.heart:nth-child(5){ left:90%; animation-delay:3s; }
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-20vh);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeText{
+    from{ opacity:0; }
+    to{ opacity:1; }
+}
+</style>
+</head>
+<body>
+
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+
+<div class="card">
+    <h1>Happy Birthday</h1>
+
+    <p class="message">
+        Happy birthday to the sweetest soul who somehow manages to be
+        strong and a little crybaby at the same time.
+    </p>
+
+    <p class="name">
+        For Your_Receiver ✨
+    </p>
+
+    <button onclick="showWish()">From Your_Name</button>
+
+    <div id="wish" class="hidden">
+        No matter how much you overthink or cry, I'll always be here
+        reminding you how special you are.<br><br>
+        I hope this year gives you the happiness your heart truly deserves. ♡
+    </div>
+</div>
+
+<script>
+function showWish(){
+    document.getElementById("wish").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
